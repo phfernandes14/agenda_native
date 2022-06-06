@@ -1,0 +1,39 @@
+//Selecione o database
+use('SeuBD')
+
+// Remove a collection
+db.contatos.drop()
+
+/* Cria a collection com a validação do schema
+   Saiba mais em: https://docs.mongodb.com/manual/core/schema-validation/
+*/
+db.createCollection('contatos', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['nome','sobrenome', 'email', 'ddd_telefone_1', 'ddd_telefone_2'],
+            properties: {
+                nome: {
+                    bsonType: 'string',
+                    minLength: 3,
+                    maxLength: 100,
+                    description: 'Nome deve ser um texto entre 3 a 100 caracteres e é obrigatório'
+                },
+                sobrenome: {
+                    bsonType: 'string',
+                    minLength: 3,
+                    maxLength: 100,
+                    description: 'Nome deve ser um texto entre 3 a 100 caracteres e é obrigatório'
+                },         
+                email: {
+                    bsonType: 'string',
+                    description: 'O e-mail é obrigatório'
+                },
+                ddd_telefone_1: {bsonType: 'string'},
+                ddd_telefone_2: {bsonType: 'string'},       
+        }
+    }
+    },
+    validationLevel: 'off', //strict-> aplica no insert e no update. moderate apenas no insert or off
+    validationAction: 'error' //error->rejeita o documento ou warn->registra no log mas permite a inclusão
+})
