@@ -2,8 +2,7 @@
 
 ✔️ Concluído ✔️
 
-💻 Sobre o projeto
-Projeto tem o intuito de colocar em prática conceitos aprendidos sobre react-native desenvolvidos no curso de Mobile na Fatec Itu.
+O projeto tem o intuito de colocar em prática conceitos aprendidos sobre react-native desenvolvidos no curso de Mobile na Fatec Itu.
 
 Os desenvolvedores do projeto foram Igor Guilherme Feliciano e Pedro Henrique da Silva Fernandes
 
